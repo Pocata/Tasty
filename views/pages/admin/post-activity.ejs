@@ -1,0 +1,50 @@
+<!-- post-activity.ejs -->
+<%- contentFor('body')%>
+<main>
+  <div class="container" style="padding-top: 100px">
+    <h2>發佈最新消息</h2>
+    <form
+      action="/admin/post-activity"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div>
+        <label>標題：</label>
+        <input type="text" name="title" required />
+      </div>
+      <div>
+        <label>開始日期：</label>
+        <input type="date" name="start_date" required />
+      </div>
+      <div>
+        <label>結束日期：</label>
+        <input type="date" name="end_date" />
+      </div>
+      <div>
+        <label>內容：</label>
+        <textarea name="content" required></textarea>
+      </div>
+      <div>
+        <label>細項：</label>
+        <textarea name="details" required></textarea>
+      </div>
+      <div>
+        <label>宣傳照：</label>
+        <input type="file" name="photo" required />
+      </div>
+      <button type="submit">確認發佈</button>
+    </form>
+  </div>
+</main>
+<%- contentFor('scripts') %>
+<script src="/js/index.js"></script>
+<script>
+  const fileInput = document.querySelector('input[name="photo"]');
+  fileInput.onchange = (evt) => {
+    const [file] = fileInput.files;
+    if (file) {
+      // 這裡可以動態產生一個 img 標籤顯示圖片
+      console.log("已選取檔案：" + file.name);
+    }
+  };
+</script>

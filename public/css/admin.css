@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* 1. 將所有元素的邊距與內距清空，並強制 box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 這一行極其重要，讓 padding 不會撐破寬度 */
+}
+
+/* 2. 移除連結底線與清單點點 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/* 3. 讓圖片更易於控制 */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/*字體大小*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: bold; /* 或根據設計設定 */
+  line-height: 1.2;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  height: 100%;
+  overflow: auto;
+  font-family: Roboto, Arial, Microsoft JhengHei Modify, Microsoft JhengHei, PingFangTC, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f5f5f5;
+}
+
+/*testing oveflow*/
+body {
+  height: 200vh;
+  overflow-x: hidden;
+}
+body.lock-scroll {
+  overflow: hidden;
+  height: 100%;
+}/*# sourceMappingURL=admin.css.map */

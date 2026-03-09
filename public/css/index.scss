@@ -1,0 +1,279 @@
+@import "./styles";
+
+/* 固定背景 */
+div.fixBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 💡 建議改為 -1 */
+  background-image: url("/img/bg_pink.jpg"); /* 💡 修正點：加上 url() 並使用絕對路徑 */
+  // background-size: cover; /* 💡 補充：讓圖片填滿整個螢幕 */
+  background-position: center; /* 💡 補充：讓圖片置中 */
+}
+/* 滾動後的背景 */
+div.fixBg.scrolled {
+  background-image: url("/img/bg_brown.jpg"); /* 換成另一張圖，例如深色系 */
+}
+
+.ctHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  width: 100%;
+  height: 80px;
+  z-index: 100;
+  background-color: #ba0c2f;
+  transition: all 0.2s ease-in-out;
+  .container {
+    position: relative;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    .ctHeader_logo {
+      display: inline-block;
+      width: 150px;
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    /*漢堡nav*/
+    .ctHeader_ham {
+      position: relative;
+      z-index: 200;
+      width: 40px; // 💡 稍微加大寬度，更好點
+      height: 40px; // 💡 高度也加大，增加點擊感應範圍
+      background-color: transparent;
+      border: 0;
+      cursor: pointer; // 💡 確保滑鼠移上去會變手指
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+
+      span {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: white;
+        transition: all 0.5s ease-in-out;
+
+        // 💡 設定中間這條線的縮放支點在左邊
+        &:nth-child(2) {
+          transform-origin: left;
+        }
+      }
+      &.active {
+        // 💡 第 1 條：往下移並旋轉
+        span:nth-child(1) {
+          transform: translateY(8px) rotate(35deg);
+        }
+
+        // 💡 第 2 條：單獨向左縮短消失 (不會影響別人！)
+        span:nth-child(2) {
+          transform: scaleX(0);
+          opacity: 0;
+        }
+
+        // 💡 第 3 條：往上移並旋轉
+        span:nth-child(3) {
+          transform: translateY(-8px) rotate(-35deg);
+        }
+      }
+    }
+  }
+}
+.ctHeader_nav {
+  /* 💡 關鍵 1：固定定位並從頂部開始 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  /* 💡 關鍵 2：初始狀態移到螢幕上方（看不見） */
+  transform: translateY(-100%);
+  z-index: 150; // 低於漢堡按鈕的 200
+
+  background-color: rgba(
+    150,
+    34,
+    51,
+    0.85
+  ); // 稍微調高不透明度才有「蓋住」的感覺
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: transform 0.4s ease-in-out; // 稍微放慢一點點更有質感
+
+  /* 防止選單內文字太長可以捲動 */
+  overflow-y: auto;
+
+  &.hamOpen {
+    /* 💡 關鍵 3：向下移動回原位 */
+    transform: translateY(0);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      text-align: center;
+      margin: 15px 0 0;
+
+      a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.4s ease-in-out;
+        .nav_en {
+          font-size: 24px;
+          &::first-letter {
+            color: #152638;
+          }
+          font-weight: 700;
+          transition: font-size 0.4s ease-in-out;
+        }
+        .nav_chi {
+          font-size: 16px;
+          transition: font-size 0.4s ease-in-out;
+        }
+        &:hover {
+          padding: 40px 0;
+          .nav_en {
+            font-size: 30px;
+            color: #152638;
+          }
+          .nav_chi {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+/*輪播圖片*/
+main {
+  @include flexbox(column);
+  padding-top: 80px;
+}
+.swiper {
+  --swiper-navigation-sides-offset: 0px;
+
+  position: relative; // 💡 確保容器有定位
+  &:hover {
+    cursor: grab;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: absolute;
+    top: calc(50% - 20px);
+    width: 40px; // 方框寬度
+    height: 40px; // 方框高度
+    background-color: #a78a70; // 你的主題紅，加點透明度
+    box-shadow: 0px 0px 5px #000;
+    transition: all 0.3s ease-in-out;
+
+    /* 💡 核心修正 2：確保容器是 Flex 才能讓三角形置中 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .swiper-button-next {
+    &::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 17px solid black;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      left: 10px; // 視覺微調，讓它看起來更置中
+    }
+  }
+  .swiper-button-prev {
+    &::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-right: 17px solid black;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      right: 10px; // 視覺微調，讓它看起來更置中
+    }
+    @media screen and (max-width: 960px) {
+      top: calc(50% - 15px);
+      width: 30px;
+      height: 30px;
+      box-shadow: 0 0 5px #000;
+    }
+  }
+}
+.Index_link_menu {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  @include flexbox(row);
+
+  div {
+    @include flexbox(row);
+    width: 25%;
+    font-size: 20px;
+    position: relative;
+    a {
+      @include flexbox(column);
+
+      width: 100%;
+      height: 100%;
+      padding: 30px 10px;
+      text-align: center;
+      align-items: center;
+      justify-items: center;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  div:nth-child(1) {
+    background-color: #c63242;
+  }
+  div:nth-child(2) {
+    background-color: #152638;
+  }
+  div:nth-child(3) {
+    background-color: #a88a70;
+  }
+  div:nth-child(4) {
+    background-color: #00a3ad;
+  }
+}
+.space_area {
+  @include flexbox(column);
+  height: 240px;
+  width: 100%;
+  position: relative;
+}
+.swiper-news {
+  .swiper-slide {
+    @include flexbox(row);
+    width: 100%;
+    height: 420px;
+    background-color: #ba0c2f;
+    .news_cont {
+    }
+  }
+}
+footer {
+}

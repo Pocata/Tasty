@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <title><%= typeof title !== 'undefined' ? title : 'TASTy西堤牛排' %></title>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <div class="<%= pageBg%>"></div>
+    <%- include('../partials/header') %><%# header %> <%- body %><%# main %> <%-
+    include('../partials/footer') %><%# footer %> <%- defineContent('scripts')
+    %><%# scripts %>
+  </body>
+</html>

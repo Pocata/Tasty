@@ -1,0 +1,57 @@
+<%- contentFor('body') %>
+<main>
+  <!-- 主視覺輪播 -->
+  <section>
+    <!-- Slider main container -->
+    <div class="swiper swiper-photo">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="/img/02.jpg" alt="Slide 1" /></div>
+        <div class="swiper-slide"><img src="/img/03.jpg" alt="Slide 2" /></div>
+      </div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+  <section class="Index_link_menu">
+    <div>
+      <a href="">MENU<br />嘗美食</a>
+    </div>
+    <div>
+      <a href="">SHOPS<br />找門市</a>
+    </div>
+    <div>
+      <a href="">BOOOKING<br />線上訂位</a>
+    </div>
+    <div>
+      <a href="">TAKE OUT<br />外帶餐點</a>
+    </div>
+  </section>
+  <section class="space_area"></section>
+  <!-- 消息輪播 -->
+  <section>
+    <!-- Slider main container -->
+    <div class="swiper swiper-news">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <article class="news_cont"><div></div></article>
+          <article class="news_pic"></article>
+          <img src="" alt="Slide 1" />
+        </div>
+      </div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+</main>
+<%- contentFor('scripts') %>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="/js/index.js"></script>
+<script>
+  console.log("after script");
+</script>
