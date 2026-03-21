@@ -51,7 +51,7 @@ body {
 
 /*testing oveflow*/
 body {
-  height: 200vh;
+  height: 100vh;
   overflow-x: hidden;
 }
 body.lock-scroll {
@@ -59,24 +59,8 @@ body.lock-scroll {
   height: 100%;
 }
 
-/* 固定背景 */
-div.fixBg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* 💡 建議改為 -1 */
-  background-image: url("/img/bg_pink.jpg"); /* 💡 修正點：加上 url() 並使用絕對路徑 */
-  background-position: center; /* 💡 補充：讓圖片置中 */
-}
-
-/* 滾動後的背景 */
-div.fixBg.scrolled {
-  background-image: url("/img/bg_brown.jpg"); /* 換成另一張圖，例如深色系 */
-}
-
-.ctHeader {
+/* 上方導覽列 */
+section.ctHeader {
   position: fixed;
   top: 0;
   left: 0;
@@ -87,7 +71,7 @@ div.fixBg.scrolled {
   background-color: #ba0c2f;
   transition: all 0.2s ease-in-out;
 }
-.ctHeader .container {
+section.ctHeader .container {
   position: relative;
   padding: 0 40px;
   display: flex;
@@ -95,19 +79,19 @@ div.fixBg.scrolled {
   justify-content: space-between;
   height: 100%;
 }
-.ctHeader .container .ctHeader_logo {
+section.ctHeader .container .ctHeader_logo {
   display: inline-block;
   width: 150px;
 }
-.ctHeader .container .ctHeader_logo img {
+section.ctHeader .container .ctHeader_logo img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-.ctHeader .container {
+section.ctHeader .container {
   /*漢堡nav*/
 }
-.ctHeader .container .ctHeader_ham {
+section.ctHeader .container .ctHeader_ham {
   position: relative;
   z-index: 200;
   width: 40px;
@@ -122,24 +106,24 @@ div.fixBg.scrolled {
   flex-direction: column;
   gap: 6px;
 }
-.ctHeader .container .ctHeader_ham span {
+section.ctHeader .container .ctHeader_ham span {
   display: block;
   width: 30px;
   height: 2px;
   background-color: white;
   transition: all 0.5s ease-in-out;
 }
-.ctHeader .container .ctHeader_ham span:nth-child(2) {
+section.ctHeader .container .ctHeader_ham span:nth-child(2) {
   transform-origin: left;
 }
-.ctHeader .container .ctHeader_ham.active span:nth-child(1) {
+section.ctHeader .container .ctHeader_ham.active span:nth-child(1) {
   transform: translateY(8px) rotate(35deg);
 }
-.ctHeader .container .ctHeader_ham.active span:nth-child(2) {
+section.ctHeader .container .ctHeader_ham.active span:nth-child(2) {
   transform: scaleX(0);
   opacity: 0;
 }
-.ctHeader .container .ctHeader_ham.active span:nth-child(3) {
+section.ctHeader .container .ctHeader_ham.active span:nth-child(3) {
   transform: translateY(-8px) rotate(-35deg);
 }
 
@@ -204,6 +188,158 @@ div.fixBg.scrolled {
   font-size: 20px;
 }
 
+/*footer*/
+footer.CtFooter {
+  background-color: #ba0c2f;
+  color: #fff;
+  position: relative;
+  height: 100%;
+  padding: 75px 0;
+}
+footer.CtFooter .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 40px;
+  justify-content: space-between;
+}
+footer.CtFooter .container .CtFooter_logoWarp {
+  margin-bottom: 20px;
+  margin-right: 0;
+  width: 150px;
+}
+footer.CtFooter .container .CtFooter_logoWarp .CtFooter_pic {
+  max-width: 100%;
+  margin: 0 auto;
+}
+footer.CtFooter .container .CtFooter_logoWarp .CtFooter_pic img {
+  max-width: 100%;
+  height: auto;
+}
+footer.CtFooter .container .CtFooter_logoWarp .CtFooter_note {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+@media screen and (max-width: 960px) {
+  footer.CtFooter .container .CtFooter_logoWarp .CtFooter_note {
+    display: none;
+  }
+}
+@media screen and (max-width: 960px) {
+  footer.CtFooter .container .CtFooter_logoWarp {
+    justify-content: center;
+  }
+}
+footer.CtFooter .container .CtFooter_content {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0px;
+}
+footer.CtFooter .container .CtFooter_content .CtFooter_webMap {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0;
+}
+footer.CtFooter .container .CtFooter_content .CtFooter_webMap li:hover {
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+  font-weight: bolder;
+}
+@media screen and (max-width: 960px) {
+  footer.CtFooter .container .CtFooter_content .CtFooter_webMap {
+    order: 2;
+    margin-bottom: 10px;
+  }
+}
+footer.CtFooter .container .CtFooter_content .CtFooter_time {
+  display: flex;
+  height: auto;
+}
+@media screen and (max-width: 960px) {
+  footer.CtFooter .container .CtFooter_content .CtFooter_time {
+    order: 1;
+    margin-bottom: 10px;
+  }
+}
+footer.CtFooter .container .CtFooter_content .CtFooter_links {
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: auto;
+}
+footer.CtFooter .container .CtFooter_content .CtFooter_links .CtFooter_linkBtn {
+  position: relative;
+}
+@media screen and (max-width: 960px) {
+  footer.CtFooter .container .CtFooter_content .CtFooter_links {
+    order: 4;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 960px) {
+  footer.CtFooter .container .CtFooter_content {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+footer.CtFooter .container .CtFooter_note_foot {
+  display: none;
+}
+@media screen and (max-width: 960px) {
+  footer.CtFooter .container .CtFooter_note_foot {
+    display: flex;
+    font-size: 12px;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 960px) {
+  footer.CtFooter .container {
+    justify-content: center;
+  }
+}
+
+.btn_quickTop {
+  position: fixed;
+  right: 60px;
+  bottom: 40px;
+  z-index: 100;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+.btn_quickTop:focus, .btn_quickTop:active {
+  outline: none;
+}
+
+/* 固定背景 */
+div.fixBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 💡 建議改為 -1 */
+  background-image: url("/img/bg_pink.jpg"); /* 💡 修正點：加上 url() 並使用絕對路徑 */
+  background-position: center; /* 💡 補充：讓圖片置中 */
+}
+
+/* 滾動後的背景 */
+div.fixBg.scrolled {
+  background-image: url("/img/bg_brown.jpg"); /* 換成另一張圖，例如深色系 */
+}
+
 /*輪播圖片*/
 main {
   display: flex;
@@ -265,6 +401,7 @@ main {
   position: relative;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .Index_link_menu div {
   display: flex;
@@ -301,6 +438,11 @@ main {
 }
 .Index_link_menu div:nth-child(4) {
   background-color: #00a3ad;
+}
+@media screen and (max-width: 768px) {
+  .Index_link_menu div {
+    width: 50%;
+  }
 }
 
 .space_area {

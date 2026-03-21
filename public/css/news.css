@@ -321,4 +321,14 @@ footer.CtFooter .container .CtFooter_note_foot {
 }
 .btn_quickTop:focus, .btn_quickTop:active {
   outline: none;
-}/*# sourceMappingURL=admin.css.map */
+}
+
+div.fixBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 💡 建議改為 -1 */
+  background-color: #f5f5f5;
+}/*# sourceMappingURL=news.css.map */

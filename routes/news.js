@@ -6,12 +6,16 @@ router.get("/list", (req, res) => {
   res.render("pages/news/list", {
     title: "TASTy西堤牛排",
     bannerTitle: "NEWS",
+    pageBg: "fixBg",
+    cssName: "news",
   });
 });
 router.get("/content/:newsurl", (req, res) => {
   res.render("pages/news/content", {
     title: "TASTy西堤牛排",
     bannerTitle: "NEWS",
+    cssName: "news",
+    pageBg: "fixBg",
   });
 });
 
