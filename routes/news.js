@@ -18,5 +18,24 @@ router.get("/content/:newsurl", (req, res) => {
     pageBg: "fixBg",
   });
 });
+router.get("/news/content/:id", async (req, res) => {
+  try {
+    let activityId = req.params.id; // 從網址抓取 ID
+    let activity = await Activity.findById(activityId).lean().exec();
+
+    if (!activity) {
+      return res.status(404).send("找不到該活動內容");
+    }
+
+    res.render("pages/activity-detail", {
+      title: activity.news_title,
+      cssName: "news-detail",
+      item: activity, // 將該筆活動詳細資料傳給 EJS
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("伺服器錯誤");
+  }
+});
 
 module.exports = router;

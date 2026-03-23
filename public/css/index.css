@@ -340,13 +340,13 @@ div.fixBg.scrolled {
   background-image: url("/img/bg_brown.jpg"); /* 換成另一張圖，例如深色系 */
 }
 
-/*輪播圖片*/
 main {
   display: flex;
   flex-direction: column;
   padding-top: 80px;
 }
 
+/*輪播圖片*/
 .swiper {
   --swiper-navigation-sides-offset: 0px;
   position: relative;
@@ -457,6 +457,241 @@ main {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 420px;
+  height: 800px;
   background-color: #ba0c2f;
+}
+.swiper-news .swiper-slide .news_cont,
+.swiper-news .swiper-slide .news_pic {
+  width: 50%;
+}
+.swiper-news .swiper-slide .news_cont {
+  position: relative;
+  min-width: 600px;
+  padding: 40px 50px 40px 80px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+.swiper-news .swiper-slide .news_cont .IndexNewsCarousel_title {
+  display: flex;
+  letter-spacing: 5px;
+  line-height: 1;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+.swiper-news .swiper-slide .news_cont .IndexNewsCarousel_title .en {
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 36px;
+}
+.swiper-news .swiper-slide .news_cont .IndexNewsCarousel_title .chi {
+  display: inline-block;
+  font-weight: 900;
+  padding: 0px 0px 10px 10px;
+  font-size: 24px;
+}
+.swiper-news .swiper-slide .news_cont .carousel__itemTitle {
+  font-size: 20px;
+  margin-bottom: 10px;
+  line-height: 1;
+  font-weight: 700;
+}
+.swiper-news .swiper-slide .news_cont .carousel_itemDate {
+  display: flex;
+  flex-direction: row;
+  color: #e0ca93;
+  font-size: 16px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+.swiper-news .swiper-slide .news_cont .carousel_itemDate .carousel_itemDtext {
+  display: block;
+  width: 20%;
+}
+.swiper-news .swiper-slide .news_cont .carousel_itemDate p {
+  color: #fff;
+  letter-spacing: 2px;
+}
+.swiper-news .swiper-slide .news_cont .carousel_itemTextWrap {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 1400px) {
+  .swiper-news .swiper-slide .news_cont .carousel_itemTextWrap {
+    height: 100px;
+    font-size: 16px;
+  }
+}
+.swiper-news .swiper-slide .news_cont .Button {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  letter-spacing: 1.2px;
+  background-color: rgb(167, 138, 112);
+  box-shadow: rgb(20, 38, 56) 5px -5px 0px;
+  padding: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 200px;
+  margin-left: auto;
+}
+.swiper-news .swiper-slide .news_cont .Button:hover {
+  cursor: pointer;
+  box-shadow: rgb(20, 38, 56) -5px 5px 0px;
+}
+@media screen and (max-width: 768px) {
+  .swiper-news .swiper-slide .news_cont {
+    width: 100%;
+  }
+}
+.swiper-news .swiper-slide .news_pic {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 768px) {
+  .swiper-news .swiper-slide .news_pic {
+    display: none;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .swiper-news .swiper-slide {
+    height: 420px;
+  }
+}
+
+.Index_ad {
+  position: relative;
+  height: 400px;
+  display: flex;
+}
+.Index_ad .Index_adPic {
+  width: 50%;
+  background-color: #ba0c2f;
+  background-image: url("/img/blood.jpg");
+  background-size: cover;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+.Index_ad .Index_adContent {
+  width: 50%;
+  background-color: #ba0c2f;
+  color: #fff;
+  padding: 3% 75px;
+}
+.Index_ad .Index_adContent .Index_adTitle {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+.Index_ad .Index_adContent .Index_adP {
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding: 10px 20px 0px 0px;
+}
+@media screen and (max-width: 1400px) {
+  .Index_ad .Index_adContent .Index_adP {
+    margin-bottom: 50px;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    padding: 20px 0px 0px;
+  }
+}
+.Index_ad .Index_adContent .Index_adBtn {
+  display: block;
+  width: 200px;
+  margin-left: auto;
+  margin-right: 22%;
+}
+.Index_ad .Index_adContent .Button {
+  position: relative;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  letter-spacing: 1.2px;
+  background-color: rgb(167, 138, 112);
+  box-shadow: rgb(20, 38, 56) 5px -5px 0px;
+  padding: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.Index_ad .Index_adContent .Button:hover {
+  cursor: pointer;
+  box-shadow: rgb(20, 38, 56) -5px 5px 0px;
+}
+@media screen and (max-width: 1400px) {
+  .Index_ad .Index_adContent .Button {
+    margin-right: 20px;
+  }
+}
+.Index_ad .Index_adBlood {
+  z-index: 10;
+  position: absolute;
+  top: -100px;
+  right: 40px;
+  width: 150px;
+}
+.Index_ad .Index_adBlood .Blood_flow {
+  height: 20px;
+  position: absolute;
+  bottom: 21%;
+  left: 52%;
+  width: 82.5%;
+  padding-bottom: 75%;
+  overflow: hidden;
+  border-radius: 50%;
+  transform: translate(-50%);
+}
+.Index_ad .Index_adBlood .Blood_flow .Blood_flowInner {
+  position: absolute;
+  bottom: -2%;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  background-image: url(/img/bloodFlow.png);
+  background-repeat: repeat-x;
+  background-position: left 100% bottom 0;
+  background-size: 250%;
+  transform: rotate(-8deg);
+  animation: flow 10s linear infinite;
+}
+.Index_ad .Index_adBlood .Blood_flow .Blood_flowInner-light {
+  bottom: 0;
+  background-position: left -100% bottom 0;
+  opacity: 0.6;
+  transform: rotate(2deg);
+  animation-duration: 12s;
+  animation-delay: -1.5s;
+}
+@media screen and (max-width: 960px) {
+  .Index_ad .Index_adBlood {
+    display: none;
+  }
+}
+@media screen and (max-width: 960px) {
+  .Index_ad {
+    flex-direction: column;
+    height: auto;
+  }
+  .Index_ad .Index_adPic,
+  .Index_ad .Index_adContent {
+    width: 100%;
+  }
+  .Index_ad .Index_adPic {
+    height: 500px;
+  }
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: -100% 100%;
+  }
 }/*# sourceMappingURL=index.css.map */

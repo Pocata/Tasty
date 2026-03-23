@@ -37,11 +37,42 @@
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
+         <% if (ad && ad.length > 0) { %>
+          <% ad.forEach(item => { %>
         <div class="swiper-slide">
-          <article class="news_cont"><div></div></article>
-          <article class="news_pic"></article>
-          <img src="" alt="Slide 1" />
+          <div class="news_cont">
+            <div class="IndexNewsCarousel_title">
+              <span class="en">NEWS</span>
+              <span class="chi">最新消息</span>
+            </div>
+            <!-- 活動標題 -->
+            <a href="/news/content/<%= item._id %>" class="carousel__itemTitle"><%= item.news_title %></a>
+            <!-- 活動日期 -->
+            <div class="carousel_itemDate">
+              <div class="carousel_itemDtext">FROM<p><%= new Date(item.start_date).toLocaleDateString('zh-TW', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'}) %></p></div>
+              <div class="carousel_itemDtext">TO<p><%= new Date(item.end_date).toLocaleDateString('zh-TW', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'}) %></p></div>
+            </div>
+            <!-- 活動概述 -->
+            <div class="carousel_itemTextWrap">
+              <div class="carousel_itemText"><%= `${item.news_description.substring(0,48)}...` %></div>
+              <a href="/news/content/<%= item._id %>">(...more)</a>
+            </div>
+            <a href="/news/content/<%= item._id %>" class="Button">VIEW MORE</a>
+          </div>
+          <div class="news_pic" style="background-image: url(<%= item.news_img %>)"></div>
         </div>
+<% }) %>
+    <% } else { %>
+      <div class="swiper-slide">
+      <p>目前沒有最新消息</p>
+    </div>
+  <% } %>
       </div>
       <!-- If we need navigation buttons -->
       <div class="swiper-button-prev"></div>
@@ -62,7 +93,14 @@
           西堤牛排十餘年來長期響應公益捐血活動發起「熱血解封，挽袖相挺
           」邀請大家站出來，一起解封口罩下那藏不住的熱血!
         </p>
-        <a href="" class="Button">VIEW MORE</a>
+        <a href="" class="Index_adBtn Button">VIEW MORE</a>
+      </div>
+      <div class="Blood Index_adBlood">
+        <img src="/img/bloodBack.png" alt="" />
+        <div class="Blood_flow">
+          <div class="Blood_flowInner"></div>
+          <div class="Blood_flowInner Blood_flowInner-light"></div>
+        </div>
       </div>
     </div>
   </section>

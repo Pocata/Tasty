@@ -8,13 +8,22 @@ router.get("/", (req, res) => {
   res.send("Hello World!");
 });
 /*首頁*/
-router.get("/index", (req, res) => {
-  res.render("pages/index", {
-    title: "TASTy西堤牛排",
-    bannerTitle: "INDEX",
-    cssName: "index",
-    pageBg: "fixBg",
-  });
+router.get("/index", async (req, res) => {
+  try {
+    let newsFound = await Activity.find().lean().exec();
+
+    // 💡 必須在 try 裡面渲染，否則拿不到 newsFound
+    res.render("pages/index", {
+      title: "TASTy西堤牛排",
+      bannerTitle: "INDEX",
+      cssName: "index",
+      pageBg: "fixBg",
+      ad: newsFound, // 這裡傳遞資料給 EJS
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send("資料讀取失敗");
+  }
 });
 
 /*找門市*/
