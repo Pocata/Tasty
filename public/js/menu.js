@@ -1,4 +1,4 @@
-console.log("this is newspage");
+console.log("this is menupage");
 const btn = document.querySelector(".ctHeader_ham");
 const nav = document.querySelector(".ctHeader_nav");
 /*ham*/

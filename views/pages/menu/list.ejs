@@ -1,0 +1,86 @@
+<%- contentFor('body') %>
+<main>
+  <div class="banner">
+    <div class="bannerTitle"><%= bannerTitle%></div>
+  </div>
+  <div class="menulist_content">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/index" class="breadcrumbs_link breadcrumbs_home">
+          <img src="/img/breadcrumbs_home.webp" alt="home" />
+        </a>
+        <a href="/menu/list" class="breadcrumbs_link">/嘗美食</a>
+      </div>
+
+      <div class="menulist_list">
+        <!-- 第一本套餐 -->
+        <div class="menulist_item">
+          <!-- 套餐圖 -->
+          <div class="menulist_itemPic">
+            <a href="/menu/content?menu=23">
+              <img
+                src="/img/202501_3.jpg"
+                alt=" CLASSIC SET MENU - 經典套餐  "
+              />
+              CLASSIC SET MENU - 經典套餐
+            </a>
+          </div>
+          <!-- 套餐簡介 -->
+          <div class="menulist_itemContent"></div>
+        </div>
+        <!-- 第二本套餐 -->
+        <div class="menulist_item">
+          <!-- 套餐圖 -->
+          <a href="/menu/content?menu=24"
+            ><div class="menulist_itemPic">
+              <img
+                src="/img/202501_3.jpg"
+                alt=" 
+                    【限定門市】CLASSIC SET MENU - 經典套餐                    "
+              />
+              【限定門市】CLASSIC SET MENU - 經典套餐
+            </div></a
+          >
+          <!-- 套餐簡介 -->
+          <div class="menulist_itemContent">
+            【限定門市菜單】
+            <br />
+            上市期間 :2026/3/5
+            <br />
+            限定門市
+            :西堤台北南京東店、西堤桃園南華店、西堤高雄中山店、西堤板橋中山店、西堤台北重慶南店、西堤高雄富國店、西堤頭份尚順店、西堤中和板南店、西堤仁德中山店、西堤台中文心家樂福店、西堤員林大全聯店、西堤台北光復南店
+          </div>
+        </div>
+      </div>
+
+      <!-- 菜單總備註 -->
+      <div class="menulist_note">
+        ★
+        自2019年12月20日起，西堤牛排停售原有蔬食套餐，針對蔬/素食消費者，部份門店提供代訂蔬食服務，詳情歡迎致電各分店洽詢。造成不便，敬請見諒。
+        <br />
+        ★ 另加10%服務費。
+        <br />
+        ★ 單點 A LA CARTE：一般經典主餐每道 390
+        元，升級加價主餐需另加升級價方為商品單點之售價。開胃品/沙拉/麵包/湯品/甜點/飲料每道
+        80元，沙瓦30元。(沙瓦僅供套餐使用)以上價格需另加10%服務費。
+        <br />
+        ★ 本餐廳得依季節更替調整菜單內容，菜色呈現樣式依現場實物為準。
+        <br />
+        ★ 如遇菜色內容調整，仍可於同等值商品中選擇。
+        <br />
+        ★ 肉品來源以各門店公告為準。
+        <br />
+        ★ 凡持禮券消費者，您的消費權益詳見官網禮券查詢區。
+        <br />
+        ★ The price is subject to 10% service charge. With the change of seasons
+        comes a few changes in the menu.
+      </div>
+    </div>
+  </div>
+</main>
+<%- contentFor('scripts') %>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="/js/menu.js"></script>
+<script>
+  console.log("after script");
+</script>

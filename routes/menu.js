@@ -1,7 +1,16 @@
 const router = require("express").Router();
 /*嘗美食*/
 router.get("/list", (req, res) => {
-  res.render("這是menu page", { title: "TASTy西堤牛排", bannerTitle: "MENU" });
+  try {
+    res.render("pages/menu/list", {
+      title: "TASTy西堤牛排",
+      bannerTitle: "MENU",
+      pageBg: "fixBg",
+      cssName: "menu",
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 // app.get("/content/:menu", (req, res) => {
 //   !req.query

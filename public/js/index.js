@@ -12,6 +12,7 @@ window.addEventListener("scroll", () => {
     bgElement.classList.remove("scrolled");
   }
 });
+/*ham*/
 if (btn && nav) {
   btn.addEventListener("click", () => {
     console.log("click");
