@@ -336,7 +336,8 @@ div.fixBg {
   width: 100%;
   height: 100%;
   z-index: -1; /* 💡 建議改為 -1 */
-  background-color: #fff;
+  background-image: url("/img/bg_pink.jpg"); /* 💡 修正點：加上 url() 並使用絕對路徑 */
+  background-position: center; /* 💡 補充：讓圖片置中 */
 }
 
 .banner {
@@ -391,6 +392,7 @@ div.fixBg {
   margin-left: 0;
 }
 .menulist_content .container .menulist_list {
+  height: auto;
   margin-bottom: 25px;
   display: flex;
   flex-wrap: wrap;
@@ -425,6 +427,184 @@ div.fixBg {
   font-size: 18px;
   color: #fff;
   background-color: #a78a70;
+}
+
+.menuContent_content {
+  background-color: #fff;
+  position: relative;
+  padding: 25px 0;
+}
+.menuContent_content .container {
+  margin: 0 auto;
+}
+.menuContent_content .container .breadcrumbs {
+  max-width: 1500px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #951e23;
+  margin-bottom: 50px;
+}
+.menuContent_content .container .breadcrumbs .breadcrumbs_link {
+  display: block;
+  align-items: center;
+  margin-left: 10px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.menuContent_content .container .breadcrumbs .breadcrumbs_home {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-left: 0;
+}
+
+.menuContent_menu {
+  width: 100%;
+  font-size: 24px;
+  color: #142638;
+  letter-spacing: 1.5px;
+}
+
+.menuName p {
+  display: block;
+  padding: 0 40px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.menuContent_menuInfo {
+  font-size: 20px;
+  color: #951e22;
+  letter-spacing: 1.5px;
+  padding: 0 40px;
+  margin: 0 0 50px 125px;
+}
+
+.swiper {
+  --swiper-navigation-sides-offset: 0px;
+  position: relative;
+  padding-bottom: 60px;
+  width: 100%;
+}
+.swiper:hover {
+  cursor: grab;
+}
+.swiper .swiper-slide {
+  padding-top: 40px;
+  width: 420px;
+  transition: 0.5s;
+  align-self: center;
+}
+.swiper .swiper-slide {
+  z-index: 1;
+}
+.swiper .swiper-slide .slide-inner {
+  opacity: 0.5;
+  transform: scale(0.95);
+  transition: all 0.5s ease;
+}
+.swiper .swiper-slide-active {
+  z-index: 10; /* ⭐放最上層*/
+}
+.swiper .swiper-slide-active .slide-inner {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+  position: absolute;
+  top: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  background-color: #a78a70;
+  box-shadow: 0px 0px 5px #000;
+  transition: all 0.3s ease-in-out;
+  /* 💡 核心修正 2：確保容器是 Flex 才能讓三角形置中 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper .swiper-button-next::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 17px solid black;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  left: 10px;
+}
+.swiper .swiper-button-prev::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-right: 17px solid black;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  right: 10px;
+}
+@media screen and (max-width: 960px) {
+  .swiper .swiper-button-prev {
+    top: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 0 5px #000;
+  }
+}
+
+.swiper,
+.swiper-wrapper,
+.swiper-slide {
+  overflow: visible;
+}
+
+.swiper-pagination {
+  --swiper-pagination-color: #951e23;
+  --swiper-pagination-left: auto;
+  --swiper-pagination-right: 8px;
+  --swiper-pagination-bottom: -40px;
+  --swiper-pagination-top: auto;
+  --swiper-pagination-fraction-color: inherit;
+  --swiper-pagination-progressbar-bg-color: rgba(255, 255, 255, 0.25);
+  --swiper-pagination-progressbar-size: 4px;
+  --swiper-pagination-bullet-size: 15px;
+  --swiper-pagination-bullet-inactive-color: #142638;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 8px;
+  --swiper-pagination-bullet-vertical-gap: 6px;
+}
+
+.space_area {
+  display: flex;
+  flex-direction: column;
+  height: 240px;
+  width: 100%;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.Button.backbtn {
+  display: block;
+  margin: auto auto;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  letter-spacing: 1.2px;
+  background-color: rgb(167, 138, 112);
+  box-shadow: rgb(20, 38, 56) 5px -5px 0px;
+  padding: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  width: 200px;
+  position: relative;
+}
+.Button.backbtn:hover {
+  cursor: pointer;
+  box-shadow: rgb(20, 38, 56) -5px 5px 0px;
 }
 
 @keyframes fadeIn {

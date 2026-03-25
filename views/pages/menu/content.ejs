@@ -1,1 +1,82 @@
-<div class="fixbg"></div>
+<%- contentFor('body') %>
+<main>
+    <div class="banner">
+    <div class="bannerTitle"><%= bannerTitle%></div>
+  </div>
+  <div class="menuContent_content">
+    
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/index" class="breadcrumbs_link breadcrumbs_home">
+          <img src="/img/breadcrumbs_home.webp" alt="home" />
+        </a>
+        <a href="/menu/list" class="breadcrumbs_link">/嘗美食</a>
+        <% if(menu==24){ %>
+        <a href="#">/【限定門市】CLASSIC SET MENU - 經典套餐 </a>
+        <% } %>
+        <% if(menu==23){ %>
+        <a href="#">/ CLASSIC SET MENU - 經典套餐 </a>
+        <% } %>
+      </div>
+    </div>
+    <div class="menuContent_menu container">
+        <!-- 菜單標題 -->
+        <div class="menuName">
+            <% if(menu==24){ %>
+                <p>【限定門市】CLASSIC SET MENU - 經典套餐 </p>
+                <div class="menuContent_menuInfo">
+                    【限定門市菜單】
+                    <br>
+                    上市期間 :2026/3/5
+                    <br>
+                    限定門市 :西堤台北南京東店、西堤桃園南華店、西堤高雄中山店、西堤板橋中山店、西堤台北重慶南店、西堤高雄富國店、西堤頭份尚順店、西堤中和板南店、西堤仁德中山店、西堤台中文心家樂福店、西堤員林大全聯店、西堤台北光復南店
+                </div>
+            <% } %>
+            <% if(menu==23){ %>
+                <p> CLASSIC SET MENU - 經典套餐 </p>
+                <div class="menuContent_menuInfo">
+            </div>
+            <% } %>
+        </div>
+
+        <section>
+      <!-- Slider main container -->
+      <div class="swiper swiper-photo" >
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide"><div class="slide-inner"><img src="/img/202501_3.jpg" alt="Slide 1" /></div></div>
+          <div class="swiper-slide"><div class="slide-inner"><img src="/img/20260213-1-2.jpg" alt="Slide 2" /></div></div>
+          <div class="swiper-slide"><div class="slide-inner"><img src="/img/20260213-3-2.jpg" alt=""></div></div>
+          <div class="swiper-slide"><div class="slide-inner"><img src="/img/960x1420-3_0-1.webp" alt=""></div></div>
+          <div class="swiper-slide"><div class="slide-inner"><img src="/img/960x1420-4_0-1.webp" alt=""></div></div>
+          <div class="swiper-slide"><div class="slide-inner"><img src="/img/960x1420-5_0.jpg" alt=""></div></div>
+          <div class="swiper-slide"><div class="slide-inner"><img src="/img/960x1420-6_0.jpg" alt=""></div></div>
+
+        </div>
+              <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+     </section>
+     
+    </div>
+  </div>
+  <div class="menuContent_content">
+    <div class="menuContent_menuInfo">※肉品來源以各門市公告為準。<br>
+              ※圖片僅供參考，餐點呈現依實物為準。</div>
+  </div>
+  <div class="space_area">
+
+    <a href="/menu/list" class="Button backbtn">BACK</a>
+  </div>
+
+</main>
+<%- contentFor('scripts') %>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="/js/menu.js"></script>
+<script>
+  console.log("after script");
+</script>
