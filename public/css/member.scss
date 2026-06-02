@@ -1,0 +1,152 @@
+@use "./styles";
+main {
+  @include styles.flexbox(column);
+  padding-top: 80px;
+}
+div.fixBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 💡 建議改為 -1 */
+  background-image: url("/img/bg_pink.jpg"); /* 💡 修正點：加上 url() 並使用絕對路徑 */
+  // background-size: cover; /* 💡 補充：讓圖片填滿整個螢幕 */
+  background-position: center; /* 💡 補充：讓圖片置中 */
+}
+div.fixBg.scrolled {
+  background-image: url("/img/bg_brown.jpg"); /* 換成另一張圖，例如深色系 */
+}
+.banner {
+  background-image: url("/img/banner_menu.jpg");
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100% auto;
+  position: relative;
+  padding-top: 14%;
+  line-height: 1;
+  .bannerTitle {
+    position: absolute;
+    color: rgba(149, 30, 35, 0.6);
+    top: 50%;
+    left: 35px;
+    font-size: 5vw;
+    transform: translateY(-50%);
+    font-weight: 700;
+  }
+}
+.member_content {
+  position: relative;
+  padding: 25px 0;
+  margin-bottom: 50px;
+  background-color: #fff;
+  overflow: visible;
+  .container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 40px;
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #951e23;
+      margin-bottom: 50px;
+      .breadcrumbs_link {
+        display: block;
+        align-items: center;
+        margin-left: 10px;
+        letter-spacing: 2px;
+        white-space: nowrap;
+      }
+
+      .breadcrumbs_home {
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        margin-left: 0;
+      }
+    }
+  }
+}
+.space_area {
+  @include styles.flexbox(column);
+  height: 240px;
+  width: 100%;
+  position: relative;
+  flex-wrap: wrap;
+}
+.member_list {
+  @include styles.flexbox(row);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+
+  @media screen and (max-width: 1200px) {
+    align-content: center;
+    @include styles.flexbox(column);
+  }
+}
+.member_memberQRcode {
+  display: block;
+  width: 225px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+.member_memberText {
+  margin-bottom: 50px;
+  font-size: 20px;
+  display: block;
+  text-align: center;
+}
+.member_member {
+  margin-bottom: -100px;
+  padding: 50px 0;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 3px 3px 8px #7e7e7e;
+  width: 41%;
+
+  @media screen and (max-width: 960px) {
+    margin-bottom: 25px;
+    padding: 25px 10px;
+  }
+  @media screen and (max-width: 1200px) {
+    margin-bottom: 50px;
+    width: 66%;
+    padding: 0 20px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+.member_memberTitle {
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+.member_memberlogo {
+  justify-items: center;
+}
+.fade-in {
+  animation: fadeIn 1.75s ease;
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

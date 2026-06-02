@@ -340,6 +340,10 @@ div.fixBg {
   background-position: center; /* 💡 補充：讓圖片置中 */
 }
 
+div.fixBg.scrolled {
+  background-image: url("/img/bg_brown.jpg"); /* 換成另一張圖，例如深色系 */
+}
+
 .banner {
   background-image: url("/img/banner_menu.jpg");
   background-position: 100% 100%;
@@ -360,221 +364,38 @@ div.fixBg {
   font-weight: 700;
 }
 
-.menulist_content {
+.member_content {
   position: relative;
   padding: 25px 0;
-  background-color: #fff;
-}
-.menulist_content .container {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-.menulist_content .container .breadcrumbs {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 700;
-  color: #951e23;
   margin-bottom: 50px;
-}
-.menulist_content .container .breadcrumbs .breadcrumbs_link {
-  display: block;
-  align-items: center;
-  margin-left: 10px;
-  letter-spacing: 2px;
-  white-space: nowrap;
-}
-.menulist_content .container .breadcrumbs .breadcrumbs_home {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  margin-left: 0;
-}
-.menulist_content .container .menulist_list {
-  height: auto;
-  margin-bottom: 25px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -20px;
-  width: 100%;
-}
-.menulist_content .container .menulist_list .menulist_item {
-  padding: 50px;
-  width: 50%;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  animation: fadeIn 1s ease;
-}
-.menulist_content .container .menulist_list .menulist_item .menulist_itemContent {
-  font-size: 16px;
-  color: #962233;
-  font-weight: normal;
-  letter-spacing: normal;
-  padding: 0 120px;
-}
-.menulist_content .container .menulist_list .menulist_item .menulist_itemPic {
-  font-size: 28px;
-  letter-spacing: 1px;
-  text-align: center;
-}
-.menulist_content .container .menulist_list .menulist_item .menulist_itemPic img {
-  margin-bottom: 25px;
-}
-.menulist_content .container .menulist_note {
-  padding: 25px 50px;
-  font-size: 18px;
-  color: #fff;
-  background-color: #a78a70;
-}
-
-.menuContent_content {
   background-color: #fff;
-  position: relative;
-  padding: 25px 0;
-}
-.menuContent_content .container {
-  margin: 0 auto;
-}
-.menuContent_content .container .breadcrumbs {
-  max-width: 1500px;
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 700;
-  color: #951e23;
-  margin-bottom: 50px;
-}
-.menuContent_content .container .breadcrumbs .breadcrumbs_link {
-  display: block;
-  align-items: center;
-  margin-left: 10px;
-  letter-spacing: 2px;
-  white-space: nowrap;
-}
-.menuContent_content .container .breadcrumbs .breadcrumbs_home {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  margin-left: 0;
-}
-
-.menuContent_menu {
-  width: 100%;
-  font-size: 24px;
-  color: #142638;
-  letter-spacing: 1.5px;
-}
-
-.menuName p {
-  display: block;
-  padding: 0 40px;
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
-
-.menuContent_menuInfo {
-  font-size: 20px;
-  color: #951e22;
-  letter-spacing: 1.5px;
-  padding: 0 40px;
-  margin: 0 0 50px 125px;
-}
-
-.swiper {
-  --swiper-navigation-sides-offset: 0px;
-  position: relative;
-  padding-bottom: 60px;
-  width: 100%;
-}
-.swiper:hover {
-  cursor: grab;
-}
-.swiper .swiper-slide {
-  padding-top: 40px;
-  width: 420px;
-  transition: 0.5s;
-  align-self: center;
-}
-.swiper .swiper-slide {
-  z-index: 1;
-}
-.swiper .swiper-slide .slide-inner {
-  opacity: 0.5;
-  transform: scale(0.95);
-  transition: all 0.5s ease;
-}
-.swiper .swiper-slide-active {
-  z-index: 10; /* ⭐放最上層*/
-}
-.swiper .swiper-slide-active .slide-inner {
-  transform: scale(1.1);
-  opacity: 1;
-}
-.swiper .swiper-button-next,
-.swiper .swiper-button-prev {
-  position: absolute;
-  top: calc(50% - 20px);
-  width: 40px;
-  height: 40px;
-  background-color: #a78a70;
-  box-shadow: 0px 0px 5px #000;
-  transition: all 0.3s ease-in-out;
-  /* 💡 核心修正 2：確保容器是 Flex 才能讓三角形置中 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.swiper .swiper-button-next::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 17px solid black;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  left: 10px;
-}
-.swiper .swiper-button-prev::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-right: 17px solid black;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  right: 10px;
-}
-@media screen and (max-width: 960px) {
-  .swiper .swiper-button-prev {
-    top: calc(50% - 15px);
-    width: 30px;
-    height: 30px;
-    box-shadow: 0 0 5px #000;
-  }
-}
-
-.swiper,
-.swiper-wrapper,
-.swiper-slide {
   overflow: visible;
 }
-
-.swiper-pagination {
-  --swiper-pagination-color: #951e23;
-  --swiper-pagination-left: auto;
-  --swiper-pagination-right: 8px;
-  --swiper-pagination-bottom: -40px;
-  --swiper-pagination-top: auto;
-  --swiper-pagination-fraction-color: inherit;
-  --swiper-pagination-progressbar-bg-color: rgba(255, 255, 255, 0.25);
-  --swiper-pagination-progressbar-size: 4px;
-  --swiper-pagination-bullet-size: 15px;
-  --swiper-pagination-bullet-inactive-color: #142638;
-  --swiper-pagination-bullet-inactive-opacity: 1;
-  --swiper-pagination-bullet-opacity: 1;
-  --swiper-pagination-bullet-horizontal-gap: 8px;
-  --swiper-pagination-bullet-vertical-gap: 6px;
+.member_content .container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.member_content .container .breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #951e23;
+  margin-bottom: 50px;
+}
+.member_content .container .breadcrumbs .breadcrumbs_link {
+  display: block;
+  align-items: center;
+  margin-left: 10px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.member_content .container .breadcrumbs .breadcrumbs_home {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-left: 0;
 }
 
 .space_area {
@@ -586,34 +407,91 @@ div.fixBg {
   flex-wrap: wrap;
 }
 
-.Button.backbtn {
-  display: block;
-  margin: auto auto;
-  font-size: 20px;
-  font-weight: 700;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  letter-spacing: 1.2px;
-  background-color: rgb(167, 138, 112);
-  box-shadow: rgb(20, 38, 56) 5px -5px 0px;
-  padding: 10px;
-  overflow: hidden;
-  transition: box-shadow 0.3s;
-  width: 200px;
-  position: relative;
+.member_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
 }
-.Button.backbtn:hover {
-  cursor: pointer;
-  box-shadow: rgb(20, 38, 56) -5px 5px 0px;
+@media screen and (max-width: 1200px) {
+  .member_list {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.member_memberQRcode {
+  display: block;
+  width: 225px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.member_memberText {
+  margin-bottom: 50px;
+  font-size: 20px;
+  display: block;
+  text-align: center;
+}
+
+.member_member {
+  margin-bottom: -100px;
+  padding: 50px 0;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 3px 3px 8px #7e7e7e;
+  width: 41%;
+}
+@media screen and (max-width: 960px) {
+  .member_member {
+    margin-bottom: 25px;
+    padding: 25px 10px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .member_member {
+    margin-bottom: 50px;
+    width: 66%;
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .member_member {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+.member_memberTitle {
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.member_memberlogo {
+  justify-items: center;
+}
+
+.fade-in {
+  animation: fadeIn 1.75s ease;
+}
+.fade-in:nth-child(1) {
+  animation-delay: 0s;
+}
+.fade-in:nth-child(2) {
+  animation-delay: 0.3s;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
-    transform: translateX(0%);
+    transform: translateY(0%);
   }
-}/*# sourceMappingURL=menu.css.map */
+}/*# sourceMappingURL=member.css.map */

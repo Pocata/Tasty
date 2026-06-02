@@ -1,6 +1,17 @@
-console.log("this is menupage");
+console.log("this is member page");
 const btn = document.querySelector(".ctHeader_ham");
 const nav = document.querySelector(".ctHeader_nav");
+
+window.addEventListener("scroll", () => {
+  const bgElement = document.querySelector(".fixBg");
+
+  // 設定滾動超過多少像素 (px) 後換圖，例如 300px
+  if (window.scrollY > 800) {
+    bgElement.classList.add("scrolled");
+  } else {
+    bgElement.classList.remove("scrolled");
+  }
+});
 /*ham*/
 if (btn && nav) {
   btn.addEventListener("click", () => {
@@ -12,14 +23,3 @@ if (btn && nav) {
 } else {
   console.error("找不到");
 }
-const swiper = new Swiper(".swiper-photo", {
-  // Optional parameters
-  direction: "horizontal",
-  loop: false,
-  // Navigation arrows
-  navigation: {
-    addIcons: false,
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});

@@ -1,0 +1,54 @@
+<!-- Login.ejs -->
+<%- contentFor('body')%>
+<main>
+  <div class="content">
+    <div class="container">
+      <div class="login">
+        <div class="titlePic">
+          <img src="/img/logo.svg" alt="" />
+        </div>
+
+        <div class="loginTitle">管理員登入界面</div>
+        <br />
+        <form action="/admin/login" method="post">
+          <div>
+            <label for="username" class="form-label">用戶名</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+            />
+          </div>
+          <br />
+          <div>
+            <label for="password" class="form-label">密碼</label>
+            <input
+              type="text"
+              id="password"
+              name="password"
+              class="form-control"
+            />
+          </div>
+          <br />
+          <div>
+            <button type="submit" class="loginBtn btn btn-primary">登入</button>
+          </div>
+        </form>
+            <% if (errorMsg && errorMsg.length > 0) { %>
+      <div class="" style="color: red;">
+        <%= errorMsg %>
+      </div>
+    <% } %>
+      </div>
+    </div>
+  </div>
+</main>
+<%- contentFor('scripts') %>
+<script src="/js/index.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+  crossorigin="anonymous"
+></script>

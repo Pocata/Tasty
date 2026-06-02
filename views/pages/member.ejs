@@ -1,0 +1,55 @@
+<%- contentFor('body') %>
+<main>
+  <div class="banner">
+    <div class="bannerTitle"><%= bannerTitle%></div>
+  </div>
+  <div class="member_content">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/index" class="breadcrumbs_link breadcrumbs_home">
+          <img src="/img/breadcrumbs_home.webp" alt="home" />
+        </a>
+        <a href="#" class="breadcrumbs_link">/加入會員</a>
+      </div>
+      <ul class="member_list">
+        <li class="member_member fade-in">
+          <div class="member_memberContent">
+            <div class="member_memberTitle">立即加入王品瘋美食App</div>
+            <a href="" class="member_memberQRcode"
+              ><img src="/img/appQRcode.webp" alt="王品瘋美食App"
+            /></a>
+            <p class="member_memberText">
+              點石成金，筆筆變現金、瘋PAY <br />
+              秒付超方便、會員獨享優惠券
+            </p>
+            <div class="member_memberlogo">
+              <img src="/img/member_logoApp.jpg" alt="王品瘋美食App" />
+            </div>
+          </div>
+        </li>
+        <li class="member_member fade-in">
+          <div class="member_memberContent">
+            <div class="member_memberTitle">立即加入西堤官方LINE</div>
+            <a href="" class="member_memberQRcode"
+              ><img src="/img/lineQRcode.jpg" alt="王品瘋美食App"
+            /></a>
+            <p class="member_memberText">
+              加入西堤牛排LINE好友 <br />
+              最新活動立即提醒
+            </p>
+            <div class="member_memberlogo">
+              <img src="/img/member_logoLine.jpg" alt="西堤官方LINE" />
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="space_area"></div>
+</main>
+<%- contentFor('scripts') %>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="/js/member.js"></script>
+<script>
+  console.log("after script");
+</script>

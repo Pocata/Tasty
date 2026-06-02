@@ -321,4 +321,72 @@ footer.CtFooter .container .CtFooter_note_foot {
 }
 .btn_quickTop:focus, .btn_quickTop:active {
   outline: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+div.fixBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 💡 建議改為 -1 */
+  background-image: url("/img/bg_pink.jpg"); /* 💡 修正點：加上 url() 並使用絕對路徑 */
+  background-position: center; /* 💡 補充：讓圖片置中 */
+}
+
+div.fixBg.scrolled {
+  background-image: url("/img/bg_brown.jpg"); /* 換成另一張圖，例如深色系 */
+}
+
+.content {
+  margin: 0 auto;
+  width: 80%;
+  background-color: white;
+}
+
+.login {
+  width: 350px;
+  min-height: 450px;
+  margin: 100px auto;
+  border-radius: 8px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.loginBtn {
+  position: relative;
+  margin: 0 auto 0;
+}
+
+.titlePic {
+  margin: -40px -30px;
+  background-color: #ba0c2f;
+  padding: 30px;
+  text-align: center;
+}
+.titlePic img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.loginTitle {
+  margin: 0 -30px;
+  background-color: #ba0c2f;
+  color: white;
+  position: relative;
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
 }/*# sourceMappingURL=admin.css.map */

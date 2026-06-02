@@ -33,7 +33,12 @@ router.get("/shop", (req, res) => {
 
 /*會員中心*/
 router.get("/member", (req, res) => {
-  res.send("這是member page");
+  res.render("pages/member", {
+    title: "TASTy西堤牛排",
+    bannerTitle: "MEMBER",
+    cssName: "member",
+    pageBg: "fixBg",
+  });
 });
 /*捐血公益*/
 router.get("/event", (req, res) => {

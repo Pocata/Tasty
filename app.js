@@ -11,7 +11,9 @@ const indexRoutes = require("./routes/index");
 /*連結資料庫*/
 async function start() {
   try {
-    await mongoose.connect("mongodb://localhost:27017/TastyDB");
+    await mongoose.connect(
+      "mongodb+srv://happy80194_db_user:4OVE11KcRapxIX0j@cluster0.sawbyvg.mongodb.net/TastyDB",
+    );
     console.log("conneting to mongodb...TastyDB");
   } catch (err) {
     console.log(err);
@@ -21,7 +23,7 @@ start();
 
 /*express middlewares */
 app.use(express.json()); //http req content-type json to jsobject
-app.use(express.urlencoded({ extended: true })); //http req content-type form to jsobject
+app.use(express.urlencoded({ extended: true })); //http req content-type form-data to jsobject
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 /*express ejs layouts middlewares  */
