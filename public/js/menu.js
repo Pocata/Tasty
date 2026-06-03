@@ -12,14 +12,27 @@ if (btn && nav) {
 } else {
   console.error("找不到");
 }
-const swiper = new Swiper(".swiper-photo", {
+const swiper1 = new Swiper(".swiper-photo", {
   // Optional parameters
   direction: "horizontal",
-  loop: false,
+
+  centeredSlides: true, // ⭐中間對齊
+  slidesPerView: "auto", // ⭐顯示前後
+  spaceBetween: 0,
+
+  effect: "slide",
+
   // Navigation arrows
   navigation: {
     addIcons: false,
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+  history: {
+    replaceState: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    type: "bullets",
   },
 });
