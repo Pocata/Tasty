@@ -1,6 +1,10 @@
 const router = require("express").Router();
 const Activity = require("../models/news-model");
 const multer = require("multer");
+// 1. 先定義 storage (改用記憶體模式)
+const storage = multer.memoryStorage();
+
+// 2. 再把定義好的 storage 傳給 multer
 const upload = multer({ storage: storage }); //設定圖片存放在pubblic的uploads資料夾
 
 /*首頁*/
