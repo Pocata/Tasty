@@ -8,6 +8,7 @@ const newsRoutes = require("./routes/news");
 const menuRoutes = require("./routes/menu");
 const adminRoutes = require("./routes/admin");
 const indexRoutes = require("./routes/index");
+const path = require("path");
 /*連結資料庫*/
 async function start() {
   try {
@@ -25,6 +26,7 @@ start();
 app.use(express.json()); //http req content-type json to jsobject
 app.use(express.urlencoded({ extended: true })); //http req content-type form-data to jsobject
 app.use(express.static("public"));
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 /*express ejs layouts middlewares  */
 app.use(expressLayouts); // 啟用layout功能
