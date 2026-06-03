@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Activity = require("../models/news-model");
 const multer = require("multer");
-const upload = multer({ dest: "public/upload/" }); //設定圖片存放在pubblic的uploads資料夾
+const upload = multer({ storage: storage }); //設定圖片存放在pubblic的uploads資料夾
 
 /*首頁*/
 router.get("/", (req, res) => {
