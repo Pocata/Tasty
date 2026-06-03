@@ -25,7 +25,7 @@ start();
 /*express middlewares */
 app.use(express.json()); //http req content-type json to jsobject
 app.use(express.urlencoded({ extended: true })); //http req content-type form-data to jsobject
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 /*express ejs layouts middlewares  */
