@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
   },
 });
 // 💡 2. 初始化 upload
-const upload = multer({ storage: storage });
+const upload = multer({ storage: multer.memoryStorage() });
 /*signed cookie and session*/
 router.use(cookieParser(process.env.MYCOOKIESECRETKEY));
 router.use(
