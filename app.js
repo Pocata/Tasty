@@ -31,6 +31,7 @@ app.set("view engine", "ejs");
 /*express ejs layouts middlewares  */
 app.use(expressLayouts); // 啟用layout功能
 app.set("layout", "layouts/main"); //指定預設的殼子檔案
+app.set("trust proxy", 1); // 👈 關鍵！告訴 Express 信任 Vercel 的 HTTPS 代理
 // 掛載路由
 app.use("/admin", adminRoutes);
 app.use("/news", newsRoutes); // 只要網址開頭是 /news，就會進去 news.js 找

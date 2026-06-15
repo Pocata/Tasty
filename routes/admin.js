@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const joi = require("joi");
 const saltRounds = 12;
+const { MongoStore } = require("connect-mongo");
 /*存活動照 */
 // 💡 1. 先定義儲存方式 (放在外面)
 const storage = multer.diskStorage({
@@ -23,6 +24,8 @@ const storage = multer.diskStorage({
 });
 // 💡 2. 初始化 upload
 const upload = multer({ storage: multer.memoryStorage() });
+// 定義 current 環境是否為生產環境 (Vercel 會自動將 NODE_ENV 設為 production)
+const isProduction = process.env.NODE_ENV === "production";
 /*signed cookie and session*/
 router.use(cookieParser(process.env.MYCOOKIESECRETKEY));
 router.use(
@@ -30,7 +33,15 @@ router.use(
     secret: process.env.MYSESSIONSECRETKEY,
     resave: false, //避免race codition
     saveUninitialized: false, //避免大量empty session object
-    cookie: { secure: false }, //localhost ,https 則 true
+    cookie: {
+      secure: isProduction, // 線上環境(true), 本地端(false)
+      sameSite: isProduction ? "none" : "lax", // 線上環境("none"), 本地端("lax")
+    },
+    // cookie: { secure: false }, //localhost ,https 則 true
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI, // 你的 MongoDB 連線字串
+      collectionName: "sessions",
+    }),
   }),
 );
 /*驗證登入用middleware*/
